@@ -194,8 +194,8 @@ defmodule Glific.Flows.Router do
       EEx.eval_string(content)
     end
   rescue
-    EEx.SyntaxError ->
-      Logger.error("EEx threw a SyntaxError: #{content}")
+    e ->
+      Logger.error("EEx threw an exception: #{inspect(e)}, #{content}")
       "Invalid Code"
   end
 
